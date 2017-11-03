@@ -8,7 +8,7 @@ Cat = function (id, name, imageUrl) {
         this.clickCount++;
     }
 
-    this.renderCatHtmlInContainer = function(container) {
+    this.getHtml = function() {
         var $name = $('<div>' + this.name + '</div>');
         var $clicksCount = $('<span>(' + this.clickCount + ')</span>');
         var $img = $('<img height="100" width="100" src="' + this.imageUrl + '">');
@@ -19,6 +19,6 @@ Cat = function (id, name, imageUrl) {
             $clicksCount.html('<span>(' + that.clickCount + ')</span>');
         });
 
-        $(container).append($name.append($clicksCount), $img);
+        return $('<div></div>').append($name.append($clicksCount), $img);
     }
 }

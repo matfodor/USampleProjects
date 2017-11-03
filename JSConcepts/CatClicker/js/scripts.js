@@ -7,7 +7,13 @@
 
     $(function () {
         $.each(cats, function (index, cat) {
-            cat.renderCatHtmlInContainer('#cat-container');
+            var $catsMenu = $('#cats-menu');
+            var $catsMenuItem = $('<a href="" onclick="return false;">' + cat.name + ' | </a>');
+            $catsMenuItem.on('click', function(){
+                $('#cat-container').html(cat.getHtml());
+            });
+
+            $catsMenu.append($catsMenuItem);
         });
     });
 })();
